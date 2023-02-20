@@ -16,10 +16,13 @@ const wss = new WebSocket.Server({ server });
 // 같은 서버에 http, webSocket 둘 다 작동시키는 형태
 
 function onSubmitMessage(message) {
-  console.log("received: %s", message);
+  sockets.forEach((socket) => socket.send(message.toString()));
 }
 
+const sockets = [];
+
 wss.on("connection", (socket) => {
+  sockets.push(socket);
   console.log("Connected to Server");
   socket.on("close", () => console.log("Disconnected from the Browser"));
   socket.on("message", onSubmitMessage);
