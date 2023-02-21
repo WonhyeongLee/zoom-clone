@@ -4,9 +4,10 @@
 
 NodeJS, WebRTC, Websockets를 사용해서 채팅방, 화상채팅의 기능을 구현합니다.
 
+
 ## 목표 
 
-1. VanillaJS 복습, WebRTC와 WebSockets 활용법 학습
+1. websocket -> socket.io -> webRTC 로 이어지는 강의 수강
 
 2. 구현 후 TypeScript로 변환
 
