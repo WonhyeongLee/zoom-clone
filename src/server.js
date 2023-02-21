@@ -13,3 +13,12 @@ const io = SocketIO(httpServer);
 
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
 httpServer.listen(3000, handleListen);
+
+io.on("connection", (socket) => {
+  socket.on("lobby", (roomName, done) => {
+    console.log(roomName);
+    setTimeout(() => {
+      done("Timeout - "); //frontend에서 인자로 받은 함수를 실행시킴
+    }, 10000);
+  });
+});
